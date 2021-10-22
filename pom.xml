@@ -12,7 +12,7 @@
 	<artifactId>consumidor-generico-kafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>consumidor-generico-kafka</name>
-	<description>Apresentação Spring Batch</description>
+	<description>Serviço para conectar genericamente a um topico Kafka</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
