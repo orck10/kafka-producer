@@ -14,6 +14,5 @@ public class KafkaProperties {
 	private String user;
 	private String password;
 	private String topic;
-	private String port;
 	private String message;
 }
