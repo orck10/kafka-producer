@@ -1,12 +1,19 @@
 package br.com.orck.kafka.presenter;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.google.gson.Gson;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class KafkaProperties {
 	private String mechanism;
 	private String protocol;
@@ -15,4 +22,9 @@ public class KafkaProperties {
 	private String password;
 	private String topic;
 	private String message;
+	
+	@Override
+	public String toString() {
+		return new Gson().toJson(this);
+	}
 }

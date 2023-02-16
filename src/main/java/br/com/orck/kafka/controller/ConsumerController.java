@@ -33,7 +33,12 @@ public class ConsumerController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Object> post(
     		@ApiParam(value = "" ,required=true )  @Valid @RequestBody KafkaProperties body){
-		generalKafkaServie.postKafkaTopic(body);
-		return ResponseEntity.status(HttpStatus.CREATED).body("");
-	}
+		try {
+			generalKafkaServie.postKafkaTopic(body);
+			return ResponseEntity.status(HttpStatus.CREATED).body("SUUUCESSUUUU");
+	
+		}catch (Exception e) {
+			return ResponseEntity.internalServerError().body("ERROR");
+		}
+	 }
 }

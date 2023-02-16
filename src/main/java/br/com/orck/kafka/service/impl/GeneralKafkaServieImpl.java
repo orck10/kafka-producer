@@ -51,13 +51,14 @@ public class GeneralKafkaServieImpl implements GeneralKafkaServie<KafkaPropertie
         if(!(properties.getProtocol() == null  || properties.getProtocol().isBlank() || properties.getProtocol().isEmpty())) {
         	configProps.put("security.protocol", properties.getProtocol());
         }
-        configProps.put("sasl.mechanism", properties.getMechanism());
+        if(properties.getMechanism() != null)
+        	configProps.put("sasl.mechanism", properties.getMechanism());
         configProps.put("sasl.jaas.config", jaasCfg);
 
         return new DefaultKafkaProducerFactory<>(configProps);
 	}
 	
-	public KafkaTemplate<String, String> kafkaTemplate(KafkaProperties properties) {
+	private KafkaTemplate<String, String> kafkaTemplate(KafkaProperties properties) {
         return new KafkaTemplate<>(generateProducer(properties));
     }
 }
